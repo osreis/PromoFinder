@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  codigo_barras: MyString
+  nome: MyString
+  preco_nominal: 9.99
+  preco_promocional: 9.99
+
+two:
+  codigo_barras: MyString
+  nome: MyString
+  preco_nominal: 9.99
+  preco_promocional: 9.99

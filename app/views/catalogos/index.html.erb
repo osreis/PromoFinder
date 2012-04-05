@@ -1,0 +1,29 @@
+<h1>Listing catalogos</h1>
+
+<table>
+  <tr>
+    <th>Marca</th>
+    <th>Edicao</th>
+    <th>Data inicio</th>
+    <th>Data fim</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @catalogos.each do |catalogo| %>
+  <tr>
+    <td><%= catalogo.marca %></td>
+    <td><%= catalogo.edicao %></td>
+    <td><%= catalogo.data_inicio %></td>
+    <td><%= catalogo.data_fim %></td>
+    <td><%= link_to 'Show', catalogo %></td>
+    <td><%= link_to 'Edit', edit_catalogo_path(catalogo) %></td>
+    <td><%= link_to 'Destroy', catalogo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Catalogo', new_catalogo_path %>

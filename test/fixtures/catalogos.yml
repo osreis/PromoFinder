@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  marca: MyString
+  edicao: 1
+  data_inicio: 2012-04-05
+  data_fim: 2012-04-05
+
+two:
+  marca: MyString
+  edicao: 1
+  data_inicio: 2012-04-05
+  data_fim: 2012-04-05

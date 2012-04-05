@@ -1,0 +1,33 @@
+<%= form_for(@catalogo) do |f| %>
+  <% if @catalogo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@catalogo.errors.count, "error") %> prohibited this catalogo from being saved:</h2>
+
+      <ul>
+      <% @catalogo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :marca %><br />
+    <%= f.text_field :marca %>
+  </div>
+  <div class="field">
+    <%= f.label :edicao %><br />
+    <%= f.number_field :edicao %>
+  </div>
+  <div class="field">
+    <%= f.label :data_inicio %><br />
+    <%= f.date_select :data_inicio %>
+  </div>
+  <div class="field">
+    <%= f.label :data_fim %><br />
+    <%= f.date_select :data_fim %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

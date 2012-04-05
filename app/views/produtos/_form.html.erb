@@ -1,0 +1,33 @@
+<%= form_for(@produto) do |f| %>
+  <% if @produto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@produto.errors.count, "error") %> prohibited this produto from being saved:</h2>
+
+      <ul>
+      <% @produto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :codigo_barras %><br />
+    <%= f.text_field :codigo_barras %>
+  </div>
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :preco_nominal %><br />
+    <%= f.text_field :preco_nominal %>
+  </div>
+  <div class="field">
+    <%= f.label :preco_promocional %><br />
+    <%= f.text_field :preco_promocional %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
