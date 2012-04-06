@@ -10,11 +10,30 @@ class ProdutosController < ApplicationController
     end
   end
 
+  
+  def search
+  puts "*********"
+  puts "*********"
+  puts "*********"
+  puts "*********"
+  puts "*********"
+  puts "*********"
+  puts "*********"
+  puts "*********"
+   respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @produto }
+	end
+  end
+  
   # GET /produtos/1
   # GET /produtos/1.json
   def show
-    @produto = Produto.find(params[:id])
-
+  begin
+		@produto = Produto.find(params[:id])
+	rescue
+		@produto = nil
+	end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @produto }
@@ -80,4 +99,10 @@ class ProdutosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def destroy_produto
+    @produto = Produto.find(params[:id])
+    @produto.destroy
+  end
+  
 end

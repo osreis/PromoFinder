@@ -1,0 +1,37 @@
+.pagination
+{
+	margin: 15px 10px;
+	li
+	{
+		list-style-type:none;
+		margin-left: 0px;
+		margin-right: 5px;
+		border: 1px solid #CCCCCC;
+	   	padding: 3px 4px;
+		float: left; 
+		a{
+			color: #808185;
+		}
+	}
+	li.current
+	{
+	   	background-color: #808185;
+	   	border: 1px solid #808185;
+		color: #FFFFFF;
+	   	font-weight: bold;
+	   	a{
+			color: #FFFFFF;
+		}
+	}
+	li.next, li.dots , li.prev
+	{
+		border: 0px solid #FFFFFF;
+	}
+	li:hover a
+	{
+		cursor:pointer;
+	}
+	li.current a:hover, li.dots{
+		cursor:default;
+	}
+}

@@ -1,3 +1,41 @@
+<script>
+function onEnterLogin() {
+ var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+    if( keyCode == 13 ) {
+
+
+        if(!e) var e = window.event;
+
+        e.cancelBubble = true;
+        e.returnValue = false;
+
+        if (e.stopPropagation) {
+                e.stopPropagation();
+                e.preventDefault();
+        }
+}
+	   
+ }
+
+ $(document).ready(function(){
+	
+$( "#catalogo_data_inicio" ).datepicker({
+               regional: "pt-BR"
+ });
+ $( "#catalogo_data_fim" ).datepicker({
+               regional: "pt-BR"
+ });
+ });
+</script>
+
+<style>
+th {
+	height: 0px;
+}
+</style>
+<%= stylesheet_link_tag "jqueryui.css" %>
+
+
 <%= form_for(@catalogo) do |f| %>
   <% if @catalogo.errors.any? %>
     <div id="error_explanation">
@@ -11,23 +49,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :marca %><br />
-    <%= f.text_field :marca %>
-  </div>
-  <div class="field">
-    <%= f.label :edicao %><br />
-    <%= f.number_field :edicao %>
-  </div>
-  <div class="field">
-    <%= f.label :data_inicio %><br />
-    <%= f.date_select :data_inicio %>
-  </div>
-  <div class="field">
-    <%= f.label :data_fim %><br />
-    <%= f.date_select :data_fim %>
-  </div>
+  <p>
+    <label><%=  "Marca"  %><span class="asterisk" >*</span>:</label> 
+		<select id="catalogo_marca" name="catalogo[marca]" class="long_text">
+			<option>Avon</option>
+			<option>Jequiti</option>
+			<option>Natura</option>
+		</select>
+	
+  </p>
+  
+   <p>
+    <label><%=  "Nome"  %><span class="asterisk" >*</span>:</label> 
+    <%= f.text_field :edicao, :onkeypress => "onEnterLogin()" %>
+ </p>
+   <p>
+    <label><%=  "Data Inicio"  %><span class="asterisk" >*</span>:</label> 
+    <%= f.text_field :data_inicio, :size => "10" %>
+  </p>
+   <p>
+    <label><%=  "Data Fim"  %><span class="asterisk" >*</span>:</label> 
+    <%= f.text_field :data_fim, :size => "10" %>
+</p>
   <div class="actions">
-    <%= f.submit %>
+     <%= submit_tag "Salvar", :class => "button negative" %> 
   </div>
 <% end %>

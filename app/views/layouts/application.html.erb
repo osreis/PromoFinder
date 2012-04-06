@@ -1,14 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>PromoFinder</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta name="robots" content="noindex,nofollow">
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Desconto Locator</title>
+
+		<%= stylesheet_link_tag "style.css" %>
+		<%= stylesheet_link_tag "lightbox.css" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+    </head>
+	<body>
+<div id="wrap">
+
+       <div class="header">
+       		<div class="logo"><a href="index.html"><img src="/assets/logo.gif" alt="" title="" border="0" /></a></div>            
+        <div id="menu">
+            <ul>                                                                       
+            <li class="selected" id="menu_buscarProduto"><%= link_to 'Buscar Produto', produtos_path %></li>
+			<li id="menu_newProduto"><%= link_to 'Novo Produto', new_produto_path %></li>
+			<li id="menu_produtos"><%= link_to 'Produtos', produtos_path %></li>
+			<li id="menu_newRevista"><%= link_to 'Novo Catalogo', new_catalogo_path %></li>
+			<li id="menu_revistas"><%= link_to 'Catalogos', catalogos_path %></li>
+            </ul>
+        </div>     
+            
+            
+       </div> 
+       
+       
+       <div class="center_content">
+       	<div class="left_content">
+        		<div style="min-height:500px;"> <%= yield %> </div>
+                	    
+
+        <!-- you cannot remove the footer credit to comply with the license-->   
+       <div class="footer">
+       	<div class="left_footer"><a href="http://www.criarsite.com" ><img src="/assets//footer_logo.gif" alt="criar site" /></a><br /> <a href="http://csscreme.com/freecsstemplates/" title="free templates"><img src="/assets//csscreme.gif" alt="free templates" title="free templates" border="0" /></a></div>
+        <div class="right_footer">
+        </div>
+       </div>
+    
+
+</div>
 
 </body>
 </html>
+
+							
+				
+	

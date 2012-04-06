@@ -1,14 +1,36 @@
-<h1>Listing catalogos</h1>
+   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Catalogos</div>
+<script>
+$(document).ready(function(){
+	$('#menu_buscarProduto').removeClass('selected');
+	$('#menu_newProduto').removeClass('selected');
+	$('#menu_produtos').removeClass('selected');
+	$('#menu_newRevista').removeClass('selected');
+	$('#menu_revistas').removeClass('selected');
+	$('#menu_revistas').addClass('selected');
 
-<table>
+ });
+
+</script>
+<div style="margin-left: auto; margin-right:auto;">   
+<br/>
+<br/>
+<br/>
+<br/>
+<div align="right"> 
+
+<%= link_to 'Adicionar Catalogo', new_catalogo_path, :style => "width:150px;", :class => " adicionar big negative button" %>
+
+    </div>
+
+<table align="center">
+
   <tr>
-    <th>Marca</th>
-    <th>Edicao</th>
-    <th>Data inicio</th>
-    <th>Data fim</th>
-    <th></th>
-    <th></th>
-    <th></th>
+     <th style="width:150px">Marca</th>
+    <th style="width:150px">Edicao</th>
+    <th style="width:150px">Data inicio</th>
+    <th style="width:150px">Data fim</th>
+    <th style="width:150px">Acoes</th>
+    
   </tr>
 
 <% @catalogos.each do |catalogo| %>
@@ -17,13 +39,16 @@
     <td><%= catalogo.edicao %></td>
     <td><%= catalogo.data_inicio %></td>
     <td><%= catalogo.data_fim %></td>
-    <td><%= link_to 'Show', catalogo %></td>
-    <td><%= link_to 'Edit', edit_catalogo_path(catalogo) %></td>
-    <td><%= link_to 'Destroy', catalogo, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+	<%= link_to (image_tag "buttons/button_remove.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'catalogos', :action => 'destroy_catalogo', :id => catalogo.id}%>
+	<%= link_to (image_tag "buttons/button_edit.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'catalogos', :action => 'edit', :id => catalogo.id}%>
+	<%= link_to (image_tag "buttons/glass.png",:size => "20x20" ) ,{:controller => 'catalogos',:action => 'show', :id => catalogo.id}%>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Catalogo', new_catalogo_path %>
+
+</div>
+

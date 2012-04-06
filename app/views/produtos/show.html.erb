@@ -1,25 +1,106 @@
-<p id="notice"><%= notice %></p>
+<script>
+$(document).ready(function(){
+	$('#menu_buscarProduto').removeClass('selected');
+	$('#menu_newProduto').removeClass('selected');
+	$('#menu_produtos').removeClass('selected');
+	$('#menu_newRevista').removeClass('selected');
+	$('#menu_revistas').removeClass('selected');
+	$('#menu_produtos').addClass('selected');
 
-<p>
-  <b>Codigo barras:</b>
-  <%= @produto.codigo_barras %>
+ });
+
+</script>
+<%if @produto	!= nil %>	
+<div class="grid_16">
+
+    	<h1>
+    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Detalhes Produto</div>
+    	</h1>
+
+
+    	<div class="clear"></div>
+
+    	<p></p>
+
+
+		
+    	<div class="formdiv">
+     
+
+	<br/>
+	
+	
+	
+	<div style="margin-left: 135px;float: left;margin-top: -18px;margin-bottom: 6px;"> <img src="/assets/codigo.png" /></div>
+  <div style="float: left;margin-top: -8px;margin-bottom: 6px;width: 474px;text-align: center; font-size:11pt;">
+ 	<b><%= @produto.codigo_barras%><br/><br/></b>
+	</div>
+	
+<br/><br/>
+		<p>
+    <label><%=	"Catalogo" %>:</label> 
+ <label style="text-align: left;margin-left: 10px;">	<%= "Rev"%> </label> 
+	<br/>
 </p>
+	
+	<br/>
+		
 
-<p>
-  <b>Nome:</b>
-  <%= @produto.nome %>
-</p>
+	
+	
+	
+<br/>
+<br/>
+<br/>
+<br/>
+  	
+		<fieldset class="login" style="width: 350px;margin-right: auto;margin-left: auto;">
+                <legend>Promocao</legend>
+	
+		<p>
+    <label style="font-size:18pt;"><%=  "De"  %>:</label> 
+		<label style="text-align: left; text-decoration:line-through; font-size:18pt;">	<%= "10,99" %> </label> 
+	
+	</p>
+	<br/>
+	<br/>
 
-<p>
-  <b>Preco nominal:</b>
-  <%= @produto.preco_nominal %>
-</p>
+	<p style="margin-left:-15px;">
+	
+    <label style="font-size:25pt;"><%=  "Por"  %>:</label> 
+ 	<label style="text-align: left; color:red; font-size:25pt; margin-left: 15px;"><%= "9,99" %> </label> 
+	</p>
+		<br/>
+	<br/>
 
-<p>
-  <b>Preco promocional:</b>
-  <%= @produto.preco_promocional %>
-</p>
+	 <p>
+	
+    <label><%=  "Cartao Credito"  %>:</label> 
+ 	<label style="text-align: left;margin-left: 10px;"><%= @produto.preco_promocional%> </label> 
+	</p>
+	<p>
+	
+    	<label><%=  "Cartao Debito/Dinheiro"  %>:</label> 
+ 	<label style="text-align: left;margin-left: 10px;"><%= @produto.preco_promocional %> </label> 
+	</p>
+	
+	</fieldset>
+	
+ 
+  <br/>
 
+                <div>
+    			</div>
+         
+    	</div>
+    </div>
 
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>
+	<%else%>
+			
+			<h1>
+    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Nao ha promocao para esse produto</div>
+    	</h1>
+
+	
+	
+	<%end%>

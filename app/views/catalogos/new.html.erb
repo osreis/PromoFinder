@@ -1,5 +1,32 @@
-<h1>New catalogo</h1>
+<script>
+$(document).ready(function(){
+	$('#menu_buscarProduto').removeClass('selected');
+	$('#menu_newProduto').removeClass('selected');
+	$('#menu_produtos').removeClass('selected');
+	$('#menu_newRevista').removeClass('selected');
+	$('#menu_revistas').removeClass('selected');
+	$('#menu_newRevista').addClass('selected');
 
-<%= render 'form' %>
+ });
+</script>
 
-<%= link_to 'Back', catalogos_path %>
+<div class="grid_16">
+
+    	<h1>
+    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Novo Catalogo</div>
+    	</h1>
+
+
+    	<div class="clear"></div>
+
+    	<p></p>
+
+    	<div class="formdiv">
+            <fieldset class="login">
+                <legend>Catalogo</legend>
+    			<%= render 'form' %>
+                <div>
+    			</div>
+            </fieldset>
+    	</div>
+    </div>

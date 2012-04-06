@@ -14,7 +14,7 @@ class CatalogosController < ApplicationController
   # GET /catalogos/1.json
   def show
     @catalogo = Catalogo.find(params[:id])
-
+	@produtos = Produto.all
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @catalogo }
@@ -80,4 +80,15 @@ class CatalogosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def destroy_catalogo
+    @catalogo = Catalogo.find(params[:id])
+    @catalogo.destroy
+
+    respond_to do |format|
+      format.html { redirect_to catalogos_url }
+      format.json { head :no_content }
+    end
+  end
+  
 end

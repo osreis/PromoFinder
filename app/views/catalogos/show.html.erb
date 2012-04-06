@@ -1,25 +1,82 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Marca:</b>
-  <%= @catalogo.marca %>
-</p>
+<div class="grid_16">
 
-<p>
-  <b>Edicao:</b>
-  <%= @catalogo.edicao %>
-</p>
-
-<p>
-  <b>Data inicio:</b>
-  <%= @catalogo.data_inicio %>
-</p>
-
-<p>
-  <b>Data fim:</b>
-  <%= @catalogo.data_fim %>
-</p>
+    	<h1>
+    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Detalhes Catalogo</div>
+    	</h1>
 
 
-<%= link_to 'Edit', edit_catalogo_path(@catalogo) %> |
-<%= link_to 'Back', catalogos_path %>
+    	<div class="clear"></div>
+
+    	<p></p>
+
+
+		
+    	<div class="formdiv">
+     
+
+	<br/>
+	
+	
+  	
+		<fieldset class="login" style="width: 350px;margin-right: auto;margin-left: auto;">
+                <legend>Catalogo</legend>
+
+	 <p>
+	
+    <label><%=  "Marca"  %>:</label> 
+ 	<label style="text-align: left;margin-left: 10px;"><%= @catalogo.marca %> </label> 
+	</p>
+	<p>
+	
+	 <p>
+	
+    <label><%=  "Nome"  %>:</label> 
+ 	<label style="text-align: left;margin-left: 10px;"><%= @catalogo.edicao %> </label> 
+	</p>
+	<p>
+
+    <label><%=  "Data inicio"  %>:</label> 
+ 	<label style="text-align: left;margin-left: 10px;"> <%= @catalogo.data_inicio %></label> 
+	</p>
+	<p>
+	
+	 <label><%=  "Data Fim"  %>:</label> 
+ 	<label style="text-align: left;margin-left: 10px;"><%= @catalogo.data_fim %> </label> 
+	</p>
+	</fieldset>
+	
+ 
+  <br/>
+
+                <div>
+    			</div>
+         
+    	</div>
+    </div>
+
+<table align="center">
+  <tr>
+    <th style="width:150px">Codigo</th>
+    <th style="width:150px">Preco Promocional</th>
+    <th style="width:150px">Preco Nominal</th>
+	<th style="width:150px"> Acoes </th>
+  </tr>
+
+  
+<% @produtos.each do |produto| %>
+  <tr>
+	<td> <%= produto.codigo_barras %> </td>
+	<td> <%= produto.preco_promocional %> </td>
+	<td> <%= produto.preco_nominal %> </td>
+
+    <td> 
+	<%= link_to (image_tag "buttons/button_remove.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'produtos', :action => 'destroy_produto', :id => produto.id}%>
+	<%= link_to (image_tag "buttons/button_edit.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'produtos', :action => 'edit', :id => produto.id}%>
+	<%= link_to (image_tag "buttons/glass.png",:size => "20x20" ) ,{:controller => 'produtos',:action => 'show', :id => produto.id}%>
+
+  </tr>
+<% end %>
+</table>
+
+<br />

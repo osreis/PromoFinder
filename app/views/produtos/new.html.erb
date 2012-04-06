@@ -1,5 +1,45 @@
-<h1>New produto</h1>
+<script>
+$(document).ready(function(){
+	$('#menu_buscarProduto').removeClass('selected');
+	$('#menu_newProduto').removeClass('selected');
+	$('#menu_produtos').removeClass('selected');
+	$('#menu_newRevista').removeClass('selected');
+	$('#menu_revistas').removeClass('selected');
+	$('#menu_newProduto').addClass('selected');
 
-<%= render 'form' %>
+$("#produto_preco_nominal").priceFormat({
+    prefix: '',
+	 centsSeparator: ',',
+    thousandsSeparator: ''
+});
 
-<%= link_to 'Back', produtos_path %>
+
+$("#produto_preco_promocional").priceFormat({
+    prefix: '',
+	 centsSeparator: ',',
+    thousandsSeparator: ''
+});
+ });
+
+</script>
+
+<div class="grid_16">
+
+    	<h1>
+    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Novo Produto</div>
+    	</h1>
+
+
+    	<div class="clear"></div>
+
+    	<p></p>
+
+    	<div class="formdiv">
+            <fieldset class="login">
+                <legend>Produto</legend>
+    			<%= render 'form' %>
+                <div>
+    			</div>
+            </fieldset>
+    	</div>
+    </div>

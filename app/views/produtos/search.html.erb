@@ -1,0 +1,50 @@
+<script>
+$(document).ready(function(){
+	$('#menu_buscarProduto').removeClass('selected');
+	$('#menu_newProduto').removeClass('selected');
+	$('#menu_produtos').removeClass('selected');
+	$('#menu_newRevista').removeClass('selected');
+	$('#menu_revistas').removeClass('selected');
+	$('#menu_buscarProduto').addClass('selected');
+
+
+ });
+
+</script>
+
+<style>
+form {
+	text-align:center;
+}
+</style>
+
+<div class="grid_16">
+
+    	<h1>
+    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Buscar Promocao</div>
+    	</h1>
+
+
+    	<div class="clear"></div>
+
+    	<p></p>
+
+    	<div class="formdiv">
+            <fieldset class="login" style="height:150px;">
+                <legend>Buscar</legend>
+				<div style="margin-left:auto; margin-right:auto;">
+				<%= form_tag :controller => 'produtos', :action => 'search', :method => 'get' do %>
+					<br/>
+					<br/>
+					<div style="margin-top: -27px;"> <img src="/assets/codigo.png" style="width: 334px;
+height: 25px;"/></div>
+					<%= text_field_tag :search, params[:search], :id => 'search_field' , :style=> "font-size:22pt;"%>
+					<br/><br/>
+					<%= submit_tag "Buscar", :class => "button negative" %> 
+			<% end %> 
+			</div>
+                <div>
+    			</div>
+            </fieldset>
+    	</div>
+    </div>
