@@ -72,7 +72,7 @@ class ProdutosController < ApplicationController
 	@produto.catalogo = @catalogo
     respond_to do |format|
       if @produto.save
-        format.html { redirect_to @produto, :notice => 'Produto was successfully created.' }
+        format.html { redirect_to "/produtos/new", :notice => 'Produto adicionado com sucesso' }
         format.json { render :json => @produto, :status => :created, :location => @produto }
       else
         format.html { render :action => "new" }
@@ -89,7 +89,7 @@ class ProdutosController < ApplicationController
 	@produto.catalogo = @catalogo
     respond_to do |format|
       if @produto.update_attributes(params[:produto])
-        format.html { redirect_to @produto, :notice => 'Produto was successfully updated.' }
+        format.html { redirect_to produtos_url, :notice => 'Produto alterado com sucesso' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -114,6 +114,11 @@ class ProdutosController < ApplicationController
   def destroy_produto
     @produto = Produto.find(params[:id])
     @produto.destroy
+	 respond_to do |format|
+		format.html { redirect_to produtos_url, :notice => 'Produto removido com sucesso' }
+      format.json { head :no_content }
+    end
+	
   end
   
 

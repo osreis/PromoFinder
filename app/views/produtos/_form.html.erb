@@ -16,7 +16,20 @@ function onEnterLogin() {
 	}
 	   
  }
+function checkPreco (){
+	if($("#produto_preco_nominal").val() < $("#produto_preco_promocional").val()){
+		
+		alert("Preço Promocional deve ser menor que o nominal!");
+		var e = window.event;
+		e.cancelBubble = true;
+		e.returnValue = false;
 
+		if (e.stopPropagation) {
+            e.stopPropagation();
+            e.preventDefault();
+			}
+		}
+}
  
 </script>
 
@@ -45,14 +58,14 @@ function onEnterLogin() {
    <p>
 	
     	<label>Preço Nominal<span class="asterisk" ></span>:</label> 
- 	<%= f.text_field :preco_nominal, :class => 'long_text preco', :size => 10 %> 
+ 	<%= f.text_field :preco_nominal, :class => 'long_text preco', :size => 10, :onkeypress => "onEnterLogin()"  %> 
 	</p>
   
   	
    <p>
 	
     	<label>Preço Promocional<span class="asterisk" ></span>:</label> 
- 	<%= f.text_field :preco_promocional, :class => 'long_text preco', :size => '10'%> 
+ 	<%= f.text_field :preco_promocional, :class => 'long_text preco', :size => '10', :onkeypress => "onEnterLogin()" %> 
 	</p>
 	
 	<p>
@@ -63,7 +76,7 @@ function onEnterLogin() {
 	
   <br/>
   <div class="actions">
-    	 <%= submit_tag "Salvar", :class => "button negative" %> 
+    	 <%= submit_tag "Salvar", :class => "button negative", :onclick => "checkPreco();"  %> 
   <br/>
   </div>
   <br/>

@@ -9,8 +9,27 @@ $(document).ready(function(){
 	$('#menu_revistas').addClass('selected');
 
  });
+ 
+  function confirmaDelete(){
+	if(!confirm("Deseja remover esse catálogo?")){
+		var e = window.event;
+		e.cancelBubble = true;
+		e.returnValue = false;
+
+		if (e.stopPropagation) {
+            e.stopPropagation();
+            e.preventDefault();
+			}
+		}
+	}
 
 </script>
+<div style="margin-left: 49px;color:green;font-family: calibri;font-size:12pt;">
+<% flash.each do |name, msg| %>
+   <b>   <%= content_tag :div, msg, :id => "flash_#{name}" %> </b>
+	  <% end %>
+</div>
+
 <div style="margin-left: auto; margin-right:auto;">   
 <br/>
 <br/>
@@ -40,7 +59,7 @@ $(document).ready(function(){
     <td><%= catalogo.data_inicio.strftime("%d/%m/%Y") %></td>
     <td><%= catalogo.data_fim.strftime("%d/%m/%Y") %></td>
     <td>
-	<%= link_to (image_tag "buttons/button_remove.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'catalogos', :action => 'destroy_catalogo', :id => catalogo.id}%>
+	<%= link_to (image_tag "buttons/button_remove.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'catalogos', :action => 'destroy_catalogo', :id => catalogo.id},  :onclick => "confirmaDelete();"%>
 	<%= link_to (image_tag "buttons/button_edit.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'catalogos', :action => 'edit', :id => catalogo.id}%>
 	<%= link_to (image_tag "buttons/glass.png",:size => "20x20" ) ,{:controller => 'catalogos',:action => 'show', :id => catalogo.id}%>
   </tr>

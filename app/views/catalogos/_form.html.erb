@@ -26,6 +26,36 @@ $( "#catalogo_data_inicio" ).datepicker({
                regional: "pt-BR"
  });
  });
+ 
+ function checkData(){
+	
+  var DateToValue = $("#catalogo_data_fim").val();
+  var DateFromValue = $("#catalogo_data_inicio").val();
+
+  
+   var parts = DateToValue.split("/");
+   var date_inicio = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
+
+   parts = DateFromValue.split("/");
+   var date_final = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
+
+  if ((date_inicio.getTime()) < (date_final.getTime())) {
+	
+	
+		
+		alert("Data final deve ser maior que a inicial!");
+		var e = window.event;
+		e.cancelBubble = true;
+		e.returnValue = false;
+
+		if (e.stopPropagation) {
+            e.stopPropagation();
+            e.preventDefault();
+			}
+		}
+}
+ 
+ 
 </script>
 
 <style>
@@ -72,7 +102,7 @@ th {
     <%= f.text_field :data_fim, :size => "10" %>
 </p>
   <div class="actions">
-     <%= submit_tag "Salvar", :class => "button negative" %> 
+     <%= submit_tag "Salvar", :class => "button negative", :onclick => "checkData();" %> 
 
   </div>
 <% end %>

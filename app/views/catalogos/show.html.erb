@@ -9,6 +9,21 @@ $(document).ready(function(){
 
  });
 
+ 
+  function confirmaDelete(){
+	if(!confirm("Deseja remover esse produto?")){
+		var e = window.event;
+		e.cancelBubble = true;
+		e.returnValue = false;
+
+		if (e.stopPropagation) {
+            e.stopPropagation();
+            e.preventDefault();
+			}
+		}
+	}
+ 
+ 
 </script>
 <div class="grid_16">
 
@@ -82,7 +97,7 @@ $(document).ready(function(){
 	<td> <%= "%.2f" % (produto.preco_nominal) %> </td>
 
     <td> 
-	<%= link_to (image_tag "buttons/button_remove.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'produtos', :action => 'destroy_produto', :id => produto.id}%>
+	<%= link_to (image_tag "buttons/button_remove.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'produtos', :action => 'destroy_produto', :id => produto.id}, :onclick => "confirmaDelete();"%>
 	<%= link_to (image_tag "buttons/button_edit.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'produtos', :action => 'edit', :id => produto.id}%>
 	<%= link_to (image_tag "buttons/glass.png",:size => "20x20" ) ,{:controller => 'produtos',:action => 'show', :id => produto.id}%>
 
