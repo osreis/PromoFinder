@@ -1,7 +1,7 @@
 <%= form_for(@catalogo) do |f| %>
   <% if @catalogo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@catalogo.errors.count, "error") %> prohibited this catalogo from being saved:</h2>
+      <h2><%= pluralize(@catalogo.errors.count, "erro") %> impediram o catálogo de ser salvo:</h2>
 
       <ul>
       <% @catalogo.errors.full_messages.each do |msg| %>
@@ -16,18 +16,18 @@
     <%= f.text_field :marca %>
   </div>
   <div class="field">
-    <%= f.label :edicao %><br />
-    <%= f.number_field :edicao %>
+    <%= f.label "Edição" %><br />
+    <%= f.number_field :edicao, :min => 1 %>
   </div>
   <div class="field">
     <%= f.label :data_inicio %><br />
-    <%= f.date_select :data_inicio %>
+    <%= f.date_select :data_inicio, :use_month_numbers => true, :order => [:day, :month, :year] %>
   </div>
   <div class="field">
     <%= f.label :data_fim %><br />
-    <%= f.date_select :data_fim %>
+    <%= f.date_select :data_fim, :use_month_numbers => true, :order => [:day, :month, :year] %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Criar catálogo"%>
   </div>
 <% end %>

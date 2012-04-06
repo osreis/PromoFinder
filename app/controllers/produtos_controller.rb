@@ -80,4 +80,8 @@ class ProdutosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def search
+    @produtos = Produto.where("codigo_barras = ?", params[:codigo_barras])
+  end
 end
