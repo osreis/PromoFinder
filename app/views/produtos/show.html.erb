@@ -39,12 +39,11 @@ $(document).ready(function(){
 <br/><br/>
 		<p>
     <label><%=	"Catalogo" %>:</label> 
- <label style="text-align: left;margin-left: 10px;">	<%= "Rev"%> </label> 
+ <label style="text-align: left;margin-left: 10px;">	<%= @produto.catalogo.nome %> </label> 
 	<br/>
 </p>
-	
-	<br/>
-		
+
+			
 
 	
 	
@@ -59,7 +58,7 @@ $(document).ready(function(){
 	
 		<p>
     <label style="font-size:18pt;"><%=  "De"  %>:</label> 
-		<label style="text-align: left; text-decoration:line-through; font-size:18pt;">	<%= "10,99" %> </label> 
+		<label style="text-align: left; text-decoration:line-through; font-size:18pt;">	<%= @produto.preco_nominal %> </label> 
 	
 	</p>
 	<br/>
@@ -68,7 +67,7 @@ $(document).ready(function(){
 	<p style="margin-left:-15px;">
 	
     <label style="font-size:25pt;"><%=  "Por"  %>:</label> 
- 	<label style="text-align: left; color:red; font-size:25pt; margin-left: 15px;"><%= "9,99" %> </label> 
+ 	<label style="text-align: left; color:red; font-size:25pt; margin-left: 15px;"><%= @produto.preco_promocional %> </label> 
 	</p>
 		<br/>
 	<br/>
@@ -76,13 +75,21 @@ $(document).ready(function(){
 	 <p>
 	
     <label><%=  "Cartao Credito"  %>:</label> 
- 	<label style="text-align: left;margin-left: 10px;"><%= @produto.preco_promocional%> </label> 
+ 	<label style="text-align: left;margin-left: 10px;"><%= "%.2f" % (@produto.preco_promocional * 0.8) %> </label> 
 	</p>
 	<p>
 	
     	<label><%=  "Cartao Debito/Dinheiro"  %>:</label> 
- 	<label style="text-align: left;margin-left: 10px;"><%= @produto.preco_promocional %> </label> 
+ 	<label style="text-align: left;margin-left: 10px;"><%=  "%.2f" %  (@produto.preco_promocional * 0.7) %> </label> 
 	</p>
+	
+	<p">
+    <label ><%=	"Valido ate" %>:</label> 
+ <label style="text-align: left; ;margin-left: 10px; ">	<%= @produto.catalogo.data_fim.strftime("%d/%m/%Y") %> </label> 
+	<br/>
+</p>
+	
+	
 	
 	</fieldset>
 	

@@ -5,7 +5,7 @@ class CreateProdutos < ActiveRecord::Migration
       t.string :nome
       t.decimal :preco_nominal
       t.decimal :preco_promocional
-
+	  t.references :catalogo
       t.timestamps
     end
   end

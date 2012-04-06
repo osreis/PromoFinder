@@ -12,14 +12,7 @@ class ProdutosController < ApplicationController
 
   
   def search
-  puts "*********"
-  puts "*********"
-  puts "*********"
-  puts "*********"
-  puts "*********"
-  puts "*********"
-  puts "*********"
-  puts "*********"
+ 
    @produtos = Produto.where("codigo_barras = ?", params[:search])
    respond_to do |format|
       format.html # show.html.erb
@@ -45,7 +38,6 @@ class ProdutosController < ApplicationController
   # GET /produtos/new.json
   def new
     @produto = Produto.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @produto }
@@ -61,7 +53,8 @@ class ProdutosController < ApplicationController
   # POST /produtos.json
   def create
     @produto = Produto.new(params[:produto])
-
+	@catalogo = Catalogo.find(params[:catalogo][:id])
+	@produto.catalogo = @catalogo
     respond_to do |format|
       if @produto.save
         format.html { redirect_to @produto, :notice => 'Produto was successfully created.' }
@@ -77,7 +70,8 @@ class ProdutosController < ApplicationController
   # PUT /produtos/1.json
   def update
     @produto = Produto.find(params[:id])
-
+	@catalogo = Catalogo.find(params[:catalogo][:id])
+	@produto.catalogo = @catalogo
     respond_to do |format|
       if @produto.update_attributes(params[:produto])
         format.html { redirect_to @produto, :notice => 'Produto was successfully updated.' }

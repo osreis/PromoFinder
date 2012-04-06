@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120405215809) do
     t.string   "nome"
     t.decimal  "preco_nominal"
     t.decimal  "preco_promocional"
+    t.integer  "catalogo_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
