@@ -49,7 +49,6 @@ th {
     </div>
   <% end %>
 
-<<<<<<< HEAD
   <p>
     <label><%=  "Marca"  %><span class="asterisk" >*</span>:</label> 
 		<select id="catalogo_marca" name="catalogo[marca]" class="long_text">
@@ -74,25 +73,6 @@ th {
 </p>
   <div class="actions">
      <%= submit_tag "Salvar", :class => "button negative" %> 
-=======
-  <div class="field">
-    <%= f.label :marca %><br />
-    <%= f.text_field :marca %>
-  </div>
-  <div class="field">
-    <%= f.label "Edição" %><br />
-    <%= f.number_field :edicao, :min => 1 %>
-  </div>
-  <div class="field">
-    <%= f.label :data_inicio %><br />
-    <%= f.date_select :data_inicio, :use_month_numbers => true, :order => [:day, :month, :year] %>
-  </div>
-  <div class="field">
-    <%= f.label :data_fim %><br />
-    <%= f.date_select :data_fim, :use_month_numbers => true, :order => [:day, :month, :year] %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Criar catálogo"%>
->>>>>>> Sampaio
+
   </div>
 <% end %>
