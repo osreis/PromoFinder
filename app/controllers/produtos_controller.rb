@@ -20,6 +20,7 @@ class ProdutosController < ApplicationController
   puts "*********"
   puts "*********"
   puts "*********"
+   @produtos = Produto.where("codigo_barras = ?", params[:search])
    respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @produto }
@@ -100,9 +101,11 @@ class ProdutosController < ApplicationController
     end
   end
   
+
   def destroy_produto
     @produto = Produto.find(params[:id])
     @produto.destroy
   end
   
+
 end
