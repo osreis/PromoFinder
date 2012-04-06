@@ -68,11 +68,11 @@ class ProdutosController < ApplicationController
   # POST /produtos.json
   def create
     @produto = Produto.new(params[:produto])
-	@catalogo = Catalogo.find(params[:catalogo][:id])
-	@produto.catalogo = @catalogo
+	  @catalogo = Catalogo.find(params[:catalogo][:id])
+	  @produto.catalogo = @catalogo
     respond_to do |format|
       if @produto.save
-        format.html { redirect_to @produto, :notice => 'Produto was successfully created.' }
+        format.html { redirect_to @produto, :notice => 'Produto criado com sucesso.' }
         format.json { render :json => @produto, :status => :created, :location => @produto }
       else
         format.html { render :action => "new" }
@@ -89,7 +89,7 @@ class ProdutosController < ApplicationController
 	@produto.catalogo = @catalogo
     respond_to do |format|
       if @produto.update_attributes(params[:produto])
-        format.html { redirect_to @produto, :notice => 'Produto was successfully updated.' }
+        format.html { redirect_to @produto, :notice => 'Produto atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

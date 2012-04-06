@@ -46,7 +46,7 @@ class CatalogosController < ApplicationController
 
     respond_to do |format|
       if @catalogo.save
-        format.html { redirect_to @catalogo, :notice => 'Catalogo was successfully created.' }
+        format.html { redirect_to @catalogo, :notice => 'Catalogo criado com sucesso.' }
         format.json { render :json => @catalogo, :status => :created, :location => @catalogo }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class CatalogosController < ApplicationController
 
     respond_to do |format|
       if @catalogo.update_attributes(params[:catalogo])
-        format.html { redirect_to @catalogo, :notice => 'Catalogo was successfully updated.' }
+        format.html { redirect_to @catalogo, :notice => 'Catalogo atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -93,7 +93,7 @@ class CatalogosController < ApplicationController
 	@catalogo.destroy
 
     respond_to do |format|
-      format.html { redirect_to catalogos_url }
+      format.html { redirect_to catalogos_url, :notice => 'Catálogo deletado com sucesso.' }
       format.json { head :no_content }
     end
   end

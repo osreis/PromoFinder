@@ -58,7 +58,7 @@ $(document).ready(function(){
 	
 		<p>
     <label style="font-size:18pt;"><%=  "De"  %>:</label> 
-		<label style="text-align: left; text-decoration:line-through; font-size:18pt;">	<%=  "%.2f" % (@produto.preco_nominal) %> </label> 
+		<label style="text-align: left; text-decoration:line-through; font-size:18pt;">	<%= (number_to_currency(@produto.preco_nominal, :unit => "R$ ", :precision => 2, :separator => ",", :delimiter => ".")) %> </label> 
 	
 	</p>
 	<br/>
@@ -67,7 +67,7 @@ $(document).ready(function(){
 	<p style="margin-left:-15px;">
 	
     <label style="font-size:25pt;"><%=  "Por"  %>:</label> 
- 	<label style="text-align: left; color:red; font-size:25pt; margin-left: 15px;"><%= "%.2f" % (@produto.preco_promocional)%> </label> 
+ 	<label style="text-align:left; color:red; font-size:25pt; margin-left: 15px;"><%= (number_to_currency(@produto.preco_promocional, :unit => "R$ ", :precision => 2, :separator => ",", :delimiter => ".")) %> </label>
 	</p>
 		<br/>
 	<br/>
@@ -75,12 +75,12 @@ $(document).ready(function(){
 	 <p>
 	
     <label><%=  "Cartão Crédito"  %>:</label> 
- 	<label style="text-align: left;margin-left: 10px;"><%= "%.2f" % (@produto.preco_promocional * 0.8) %> </label> 
+ 	<label style="text-align: left;margin-left: 10px;"><%= (number_to_currency(@produto.preco_promocional * 0.85, :unit => "R$ ", :precision => 2, :separator => ",", :delimiter => ".")) %> </label> 
 	</p>
 	<p>
 	
     	<label><%=  "Cartão Débito/Dinheiro"  %>:</label> 
- 	<label style="text-align: left;margin-left: 10px;"><%=  "%.2f" %  (@produto.preco_promocional * 0.7) %> </label> 
+ 	<label style="text-align: left;margin-left: 10px;"><%= (number_to_currency(@produto.preco_promocional * 0.8, :unit => "R$ ", :precision => 2, :separator => ",", :delimiter => ".")) %> </label>
 	</p>
 	
 	<p">
