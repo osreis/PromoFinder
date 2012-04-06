@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120405215809) do
 
   create_table "catalogos", :force => true do |t|
     t.string   "marca"
-    t.integer  "edicao"
+    t.string   "nome"
     t.date     "data_inicio"
     t.date     "data_fim"
     t.datetime "created_at",  :null => false

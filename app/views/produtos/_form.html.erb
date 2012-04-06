@@ -57,7 +57,7 @@ function onEnterLogin() {
 	
 	<p>
     <label><%=	"Catalogo" %><span class="asterisk" >*</span>:</label> 
-	<%= collection_select :catalogo, :id, Catalogo.all, :id,:edicao, options = {}, html_options={:class => "long_text"}%>
+	<%= collection_select :catalogo, :id, Catalogo.all, :id,:nome, options = {}, html_options={:class => "long_text"}%>
 	
 </p>
 	
