@@ -68,8 +68,8 @@ class ProdutosController < ApplicationController
   # POST /produtos.json
   def create
     @produto = Produto.new(params[:produto])
-	@catalogo = Catalogo.find(params[:catalogo][:id])
-	@produto.catalogo = @catalogo
+	  @catalogo = Catalogo.find(params[:catalogo][:id])
+	  @produto.catalogo = @catalogo
     respond_to do |format|
       if @produto.save
         format.html { redirect_to "/produtos/new", :notice => 'Produto adicionado com sucesso' }

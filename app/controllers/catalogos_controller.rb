@@ -93,8 +93,10 @@
 	@catalogo.destroy
 
     respond_to do |format|
+
 		format.html { redirect_to catalogos_url, :notice => 'Catálogo removido com sucesso' }
 		format.json { head :no_content }
+
     end
   end
   
