@@ -37,8 +37,8 @@ $(document).ready(function(){
   <tr>
     <td><%= catalogo.marca %></td>
     <td><%= catalogo.nome %></td>
-    <td><%= catalogo.data_inicio %></td>
-    <td><%= catalogo.data_fim %></td>
+    <td><%= catalogo.data_inicio.strftime("%d/%m/%Y") %></td>
+    <td><%= catalogo.data_fim.strftime("%d/%m/%Y") %></td>
     <td>
 	<%= link_to (image_tag "buttons/button_remove.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'catalogos', :action => 'destroy_catalogo', :id => catalogo.id}%>
 	<%= link_to (image_tag "buttons/button_edit.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'catalogos', :action => 'edit', :id => catalogo.id}%>

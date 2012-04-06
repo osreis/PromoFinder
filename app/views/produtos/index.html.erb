@@ -36,7 +36,7 @@ $(document).ready(function(){
 	<td> <%= produto.codigo_barras %> </td>
 	<td> <%= produto.preco_promocional %> </td>
 	<td> <%= produto.preco_nominal %> </td>
-	<td> <%= produto.catalogo %> </td>
+	<td> <%= produto.catalogo.nome %> </td>
 
     <td>
 	<%= link_to (image_tag "buttons/button_remove.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'produtos', :action => 'destroy_produto', :id => produto.id}%>

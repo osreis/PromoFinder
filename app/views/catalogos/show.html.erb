@@ -48,12 +48,12 @@ $(document).ready(function(){
 	<p>
 
     <label><%=  "Data inicio"  %>:</label> 
- 	<label style="text-align: left;margin-left: 10px;"> <%= @catalogo.data_inicio %></label> 
+ 	<label style="text-align: left;margin-left: 10px;"> <%= @catalogo.data_inicio.strftime("%d/%m/%Y") %></label> 
 	</p>
 	<p>
 	
 	 <label><%=  "Data Fim"  %>:</label> 
- 	<label style="text-align: left;margin-left: 10px;"><%= @catalogo.data_fim %> </label> 
+ 	<label style="text-align: left;margin-left: 10px;"><%= @catalogo.data_fim.strftime("%d/%m/%Y") %> </label> 
 	</p>
 	</fieldset>
 	

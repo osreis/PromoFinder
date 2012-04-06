@@ -14,7 +14,7 @@ class CatalogosController < ApplicationController
   # GET /catalogos/1.json
   def show
     @catalogo = Catalogo.find(params[:id])
-	@produtos = Produto.all
+	@produtos = @catalogo.produtos
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @catalogo }
