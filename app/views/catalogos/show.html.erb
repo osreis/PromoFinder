@@ -1,4 +1,4 @@
-<script>
+﻿<script>
 $(document).ready(function(){
 	$('#menu_buscarProduto').removeClass('selected');
 	$('#menu_newProduto').removeClass('selected');
@@ -13,7 +13,7 @@ $(document).ready(function(){
 <div class="grid_16">
 
     	<h1>
-    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Detalhes Catalogo</div>
+    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Detalhes Catálogo</div>
     	</h1>
 
 
@@ -31,7 +31,7 @@ $(document).ready(function(){
 	
   	
 		<fieldset class="login" style="width: 350px;margin-right: auto;margin-left: auto;">
-                <legend>Catalogo</legend>
+                <legend>Catálogo</legend>
 
 	 <p>
 	
@@ -47,7 +47,7 @@ $(document).ready(function(){
 	</p>
 	<p>
 
-    <label><%=  "Data inicio"  %>:</label> 
+    <label><%=  "Data início"  %>:</label> 
  	<label style="text-align: left;margin-left: 10px;"> <%= @catalogo.data_inicio.strftime("%d/%m/%Y") %></label> 
 	</p>
 	<p>
@@ -68,18 +68,18 @@ $(document).ready(function(){
 
 <table align="center">
   <tr>
-    <th style="width:150px">Codigo</th>
-    <th style="width:150px">Preco Promocional</th>
-    <th style="width:150px">Preco Nominal</th>
-	<th style="width:150px"> Acoes </th>
+    <th style="width:150px">Código</th>
+    <th style="width:150px">Preço Promocional</th>
+    <th style="width:150px">Preço Nominal</th>
+	<th style="width:150px"> Ações </th>
   </tr>
 
   
 <% @produtos.each do |produto| %>
   <tr>
 	<td> <%= produto.codigo_barras %> </td>
-	<td> <%= produto.preco_promocional %> </td>
-	<td> <%= produto.preco_nominal %> </td>
+	<td> <%= "%.2f" % (produto.preco_promocional) %> </td>
+	<td> <%= "%.2f" % (produto.preco_nominal) %> </td>
 
     <td> 
 	<%= link_to (image_tag "buttons/button_remove.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'produtos', :action => 'destroy_produto', :id => produto.id}%>

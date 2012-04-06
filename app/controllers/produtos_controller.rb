@@ -13,9 +13,24 @@ class ProdutosController < ApplicationController
   
   def search
  
-   @produtos = Produto.where("codigo_barras = ?", params[:search])
    respond_to do |format|
       format.html # show.html.erb
+	end
+  end
+  
+  
+  def buscar
+ 
+   @produto = Produto.where("codigo_barras = ?", params[:search])
+	id = "notFound"
+	data = Time.new.to_date
+	@produto.each do |prod|
+		if (prod.catalogo.data_inicio <= data and prod.catalogo.data_fim >= data)
+			id = prod.id.to_s
+		end
+	end	
+   respond_to do |format|
+      format.html { redirect_to ("/produtos/" + id)}
       format.json { render :json => @produto }
 	end
   end

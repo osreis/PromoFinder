@@ -1,4 +1,4 @@
-<script>
+﻿<script>
 function onEnterLogin() {
  var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
     if( keyCode == 13 ) {
@@ -37,26 +37,26 @@ function onEnterLogin() {
 	<div style="margin-left: 152px;float: left;margin-top: -18px;margin-bottom: 6px;"> <img src="/assets/codigo.png" /></div>
   <p>
 	
-    	<label><%=  "Codigo"  %><span class="asterisk" >*</span>:</label> 
+    	<label>Código<span class="asterisk" >*</span>:</label> 
  	<%= f.text_field :codigo_barras, :class => 'long_text' , :onkeypress => "onEnterLogin()" %> 
 	</p>
 	
 	
    <p>
 	
-    	<label><%=  "Preco Nominal"  %><span class="asterisk" ></span>:</label> 
+    	<label>Preço Nominal<span class="asterisk" ></span>:</label> 
  	<%= f.text_field :preco_nominal, :class => 'long_text preco', :size => 10 %> 
 	</p>
   
   	
    <p>
 	
-    	<label><%=  "Preco Promocional"  %><span class="asterisk" ></span>:</label> 
+    	<label>Preço Promocional<span class="asterisk" ></span>:</label> 
  	<%= f.text_field :preco_promocional, :class => 'long_text preco', :size => '10'%> 
 	</p>
 	
 	<p>
-    <label><%=	"Catalogo" %><span class="asterisk" >*</span>:</label> 
+    <label>Catálogo<span class="asterisk" >*</span>:</label> 
 	<%= collection_select :catalogo, :id, Catalogo.all, :id,:nome, options = {}, html_options={:class => "long_text"}%>
 	
 </p>
