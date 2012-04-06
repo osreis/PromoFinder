@@ -35,6 +35,8 @@ class CatalogosController < ApplicationController
   # GET /catalogos/1/edit
   def edit
     @catalogo = Catalogo.find(params[:id])
+	@catalogo.data_inicio =  @catalogo.data_inicio.strftime("%d/%m/%Y")
+	@catalogo.data_fim =  @catalogo.data_fim.strftime("%d/%m/%Y")
   end
 
   # POST /catalogos
@@ -83,7 +85,12 @@ class CatalogosController < ApplicationController
   
   def destroy_catalogo
     @catalogo = Catalogo.find(params[:id])
-    @catalogo.destroy
+    
+	@catalogo.produtos.each do |produto| 
+		produto.destroy
+	end
+	
+	@catalogo.destroy
 
     respond_to do |format|
       format.html { redirect_to catalogos_url }

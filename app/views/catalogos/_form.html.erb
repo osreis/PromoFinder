@@ -1,4 +1,4 @@
-<script>
+﻿<script>
 function onEnterLogin() {
  var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
     if( keyCode == 13 ) {
@@ -64,7 +64,7 @@ th {
     <%= f.text_field :nome, :onkeypress => "onEnterLogin()" %>
  </p>
    <p>
-    <label><%=  "Data Inicio"  %><span class="asterisk" >*</span>:</label> 
+    <label><%=  "Data Início"  %><span class="asterisk" >*</span>:</label> 
     <%= f.text_field :data_inicio, :size => "10" %>
   </p>
    <p>

@@ -1,3 +1,5 @@
+﻿
+
    <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Produtos</div>
 <script>
 $(document).ready(function(){
@@ -23,19 +25,19 @@ $(document).ready(function(){
     </div>
 <table align="center">
   <tr>
-    <th style="width:150px">Codigo</th>
+    <th style="width:150px">Código</th>
     <th style="width:150px">Preco Promocional</th>
     <th style="width:150px">Preco Nominal</th>
-	<th style="width:150px">Catalogo</th>
-	<th style="width:150px"> Acoes </th>
+	<th style="width:150px">Catálogo</th>
+	<th style="width:150px"> Ações </th>
   </tr>
 
   
 <% @produtos.each do |produto| %>
   <tr>
 	<td> <%= produto.codigo_barras %> </td>
-	<td> <%= produto.preco_promocional %> </td>
-	<td> <%= produto.preco_nominal %> </td>
+	<td> <%= "%.2f" % (produto.preco_promocional) %> </td>
+	<td> <%= "%.2f" % (produto.preco_nominal) %> </td>
 	<td> <%= produto.catalogo.nome %> </td>
 
     <td>
