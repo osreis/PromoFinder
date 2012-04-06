@@ -1,4 +1,4 @@
-class Catalogo < ActiveRecord::Base
+﻿class Catalogo < ActiveRecord::Base
   attr_accessible :data_fim, :data_inicio, :nome, :marca
   has_many :produtos
   validates :marca, :presence => { :message => "do catálogo precisa ser informada."}
