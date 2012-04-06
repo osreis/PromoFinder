@@ -46,7 +46,7 @@ class CatalogosController < ApplicationController
 
     respond_to do |format|
       if @catalogo.save
-        format.html { redirect_to @catalogo, :notice => 'Catalogo criado com sucesso.' }
+        format.html { redirect_to @catalogo, :notice => 'Catálogo criado com sucesso.' }
         format.json { render :json => @catalogo, :status => :created, :location => @catalogo }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class CatalogosController < ApplicationController
 
     respond_to do |format|
       if @catalogo.update_attributes(params[:catalogo])
-        format.html { redirect_to @catalogo, :notice => 'Catalogo atualizado com sucesso.' }
+        format.html { redirect_to @catalogo, :notice => 'Catálogo atualizado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

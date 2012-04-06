@@ -1,4 +1,5 @@
-﻿   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Catálogos</div>
+﻿<p id="notice" style="text-align: left;font-size: 16px;margin-left: 48px;color: green;font-family: Tahoma;"><%= notice %></p>
+<div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Catálogos</div>
 <script>
 $(document).ready(function(){
 	$('#menu_buscarProduto').removeClass('selected');
@@ -17,7 +18,6 @@ $(document).ready(function(){
 <br/>
 <br/>
 <div align="right"> 
-
 <%= link_to 'Adicionar Catálogo', new_catalogo_path, :style => "width:150px;", :class => " adicionar big negative button" %>
 
     </div>
