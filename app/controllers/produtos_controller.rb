@@ -114,8 +114,13 @@ class ProdutosController < ApplicationController
   def destroy_produto
     @produto = Produto.find(params[:id])
     @produto.destroy
+	url = "/produtos"
+	if params[:catalogo_id] != nil
+		url = "/catalogos/" + params[:catalogo_id].to_s
+	end
+	
 	 respond_to do |format|
-		format.html { redirect_to produtos_url, :notice => 'Produto removido com sucesso' }
+		format.html { redirect_to url, :notice => 'Produto removido com sucesso' }
       format.json { head :no_content }
     end
 	
