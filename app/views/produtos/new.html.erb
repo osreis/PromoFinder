@@ -25,6 +25,8 @@ $("#produto_preco_promocional").priceFormat({
 
 <div class="grid_16">
 
+	<% if Catalogo.all.count > 0 %>
+
     	<h1>
     	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Novo Produto</div>
     	</h1>
@@ -47,4 +49,16 @@ $("#produto_preco_promocional").priceFormat({
     			</div>
             </fieldset>
     	</div>
+		
+		
+<% else %>
+   <h1>
+    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>Por favor cadastre um catálogo primeiro</div>
+    	</h1>
+		
+		<div align="right"> 
+<%= link_to 'Adicionar Catálogo', new_catalogo_path, :style => "width:150px;", :class => " adicionar big negative button" %>
+
     </div>
+<% end %>
+   </div>
