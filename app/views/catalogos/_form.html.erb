@@ -1,4 +1,4 @@
-Ôªø<script>
+<script>
 function onEnterLogin() {
  var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
     if( keyCode == 13 ) {
@@ -69,7 +69,7 @@ th {
 <%= form_for(@catalogo) do |f| %>
   <% if @catalogo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@catalogo.errors.count, "erro") %> impediram o cat√°logo de ser salvo:</h2>
+      <h2><%= pluralize(@catalogo.errors.count, "erro") %> impediram o cat·logo de ser salvo:</h2>
 
       <ul>
       <% @catalogo.errors.full_messages.each do |msg| %>
@@ -94,7 +94,7 @@ th {
     <%= f.text_field :nome, :onkeypress => "onEnterLogin()" %>
  </p>
    <p>
-    <label><%=  "Data In√≠cio"  %><span class="asterisk" >*</span>:</label> 
+    <label><%=  "Data InÌcio"  %><span class="asterisk" >*</span>:</label> 
     <%= f.text_field :data_inicio, :size => "10" %>
   </p>
    <p>

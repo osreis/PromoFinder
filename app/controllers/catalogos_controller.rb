@@ -1,4 +1,4 @@
-ï»¿class CatalogosController < ApplicationController
+class CatalogosController < ApplicationController
   # GET /catalogos
   # GET /catalogos.json
   def index
@@ -46,7 +46,7 @@
 
     respond_to do |format|
       if @catalogo.save
-        format.html { redirect_to catalogos_url, :notice => 'CatÃ¡logo adicionado com sucesso.' }
+        format.html { redirect_to catalogos_url, :notice => 'Catálogo adicionado com sucesso.' }
         format.json { render :json => @catalogo, :status => :created, :location => @catalogo }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@
 
     respond_to do |format|
       if @catalogo.update_attributes(params[:catalogo])
-        format.html { redirect_to catalogos_url, :notice => 'CatÃ¡logo alterado com sucesso' }
+        format.html { redirect_to catalogos_url, :notice => 'Catálogo alterado com sucesso' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -94,7 +94,7 @@
 
     respond_to do |format|
 
-		format.html { redirect_to catalogos_url, :notice => 'CatÃ¡logo removido com sucesso' }
+		format.html { redirect_to catalogos_url, :notice => 'Catálogo removido com sucesso' }
 		format.json { head :no_content }
 
     end

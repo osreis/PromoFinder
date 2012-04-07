@@ -1,4 +1,4 @@
-Ôªø<script>
+<script>
 $(document).ready(function(){
 	$('#menu_buscarProduto').removeClass('selected');
 	$('#menu_newProduto').removeClass('selected');
@@ -38,7 +38,7 @@ $(document).ready(function(){
 	
 <br/><br/>
 		<p>
-    <label><%=	"Cat√°logo" %>:</label> 
+    <label><%=	"Cat·logo" %>:</label> 
  <label style="text-align: left;margin-left: 10px;">	<%= @produto.catalogo.nome %> </label> 
 	<br/>
 </p>
@@ -54,7 +54,7 @@ $(document).ready(function(){
 <br/>
   	
 		<fieldset class="login" style="width: 350px;margin-right: auto;margin-left: auto;">
-                <legend>Promo√ß√£o</legend>
+                <legend>PromoÁ„o</legend>
 	
 		<p>
     <label style="font-size:18pt;"><%=  "De"  %>:</label> 
@@ -74,17 +74,17 @@ $(document).ready(function(){
 
 	 <p>
 	
-    <label><%=  "Cart√£o Cr√©dito"  %>:</label> 
+    <label><%=  "Cart„o CrÈdito"  %>:</label> 
  	<label style="text-align: left;margin-left: 10px;"><%= (number_to_currency(@produto.preco_promocional * 0.85, :unit => "R$ ", :precision => 2, :separator => ",", :delimiter => ".")) %> </label> 
 	</p>
 	<p>
 	
-    	<label><%=  "Cart√£o D√©bito/Dinheiro"  %>:</label> 
+    	<label><%=  "Cart„o DÈbito/Dinheiro"  %>:</label> 
  	<label style="text-align: left;margin-left: 10px;"><%= (number_to_currency(@produto.preco_promocional * 0.8, :unit => "R$ ", :precision => 2, :separator => ",", :delimiter => ".")) %> </label>
 	</p>
 	
 	<p">
-    <label ><%=	"V√°lido at√©" %>:</label> 
+    <label ><%=	"V·lido atÈ" %>:</label> 
  <label style="text-align: left; ;margin-left: 10px; ">	<%= @produto.catalogo.data_fim.strftime("%d/%m/%Y") %> </label> 
 	<br/>
 </p>
@@ -105,7 +105,7 @@ $(document).ready(function(){
 	<%else%>
 			
 			<h1>
-    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>N√£o h√° promo√ß√£o para esse produto</div>
+    	   <div class="title"><span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /></span>N„o h· promoÁ„o para esse produto</div>
     	</h1>
 
 	
