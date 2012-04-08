@@ -97,8 +97,9 @@ $(document).ready(function(){
 <% @produtos.each do |produto| %>
   <tr>
 	<td> <%= produto.codigo_barras %> </td>
-	<td> <%= "%.2f" % (produto.preco_promocional) %> </td>
-	<td> <%= "%.2f" % (produto.preco_nominal) %> </td>
+	<td><%= (number_to_currency(produto.preco_promocional, :unit => "R$ ", :precision => 2, :separator => ",", :delimiter => ".")) %> </td>
+	<td> <%= (number_to_currency(produto.preco_nominal, :unit => "R$ ", :precision => 2, :separator => ",", :delimiter => ".")) %></td>
+
 
     <td> 
 	<%= link_to (image_tag "buttons/button_remove.png", :size => "20x20", :style => "margin-right:10px;" ) ,{:controller => 'produtos', :action => 'destroy_produto', :id => produto.id,  :catalogo_id => @catalogo.id}, :onclick => "confirmaDelete();"%>

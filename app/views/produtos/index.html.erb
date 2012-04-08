@@ -58,8 +58,8 @@ $(document).ready(function(){
 <% @produtos.each do |produto| %>
   <tr>
 	<td> <%= produto.codigo_barras %> </td>
-	<td> <%= "%.2f" % (produto.preco_promocional) %> </td>
-	<td> <%= "%.2f" % (produto.preco_nominal) %> </td>
+	<td><%= (number_to_currency(produto.preco_promocional, :unit => "R$ ", :precision => 2, :separator => ",", :delimiter => ".")) %> </td>
+	<td> <%= (number_to_currency(produto.preco_nominal, :unit => "R$ ", :precision => 2, :separator => ",", :delimiter => ".")) %></td>
 	<td> <%= produto.catalogo.nome %> </td>
 
     <td>

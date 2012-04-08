@@ -28,7 +28,8 @@ $( "#catalogo_data_inicio" ).datepicker({
  });
  
  function checkData(){
-	
+  var camposNaoPreenchidos = false;
+  var dataErrada = false;
   var DateToValue = $("#catalogo_data_fim").val();
   var DateFromValue = $("#catalogo_data_inicio").val();
 
@@ -40,10 +41,17 @@ $( "#catalogo_data_inicio" ).datepicker({
    var date_final = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
 
   if ((date_inicio.getTime()) < (date_final.getTime())) {
-	
-	
-		
 		alert("Data final deve ser maior que a inicial!");
+		dataErrada = true;
+	}	
+	
+  if($("#catalogo_nome").val().length === 0 || $("#catalogo_data_inicio").val().length === 0 || $("#catalogo_data_fim").val().length === 0) {
+  		alert("Por favor preencha os campos indicados por *.");
+		camposNaoPreenchidos = true;
+
+  }
+	
+	if(dataErrada || camposNaoPreenchidos){
 		var e = window.event;
 		e.cancelBubble = true;
 		e.returnValue = false;
@@ -81,12 +89,7 @@ th {
 
   <p>
     <label><%=  "Marca"  %><span class="asterisk" >*</span>:</label> 
-		<select id="catalogo_marca" name="catalogo[marca]" class="long_text">
-			<option>Avon</option>
-			<option>Jequiti</option>
-			<option>Natura</option>
-		</select>
-	
+		<%= f.select :marca, ([["Avon", "Avon"], ["Jequiti", "Jequiti"], ["Natura", "Natura"]]) %>
   </p>
   
    <p>

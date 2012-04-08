@@ -17,9 +17,24 @@ function onEnterLogin() {
 	   
  }
 function checkPreco (){
-	if($("#produto_preco_nominal").val() < $("#produto_preco_promocional").val()){
-		
+
+	var camposNaoPreenchidos = false;
+	var precoErrado = false;
+	var precoNominal = $("#produto_preco_nominal").val().replace("R$", "").replace(",", ".");
+	var precoPromocional = $("#produto_preco_promocional").val().replace("R$", "").replace(",", ".");;
+	
+	if(precoNominal < precoPromocional){
 		alert("Preço Promocional deve ser menor que o nominal!");
+		precoErrado = true;
+	}
+	
+  if($("#produto_codigo_barras").val().length === 0 || $("#produto_preco_nominal").val().length === 0 || $("#produto_preco_promocional").val().length === 0) {
+  		alert("Por favor preencha os campos indicados por *.");
+		camposNaoPreenchidos = true;
+
+  }
+
+	if(precoErrado || camposNaoPreenchidos){
 		var e = window.event;
 		e.cancelBubble = true;
 		e.returnValue = false;
@@ -29,7 +44,42 @@ function checkPreco (){
             e.preventDefault();
 			}
 		}
+		
+	else {
+		$("#produto_preco_nominal").val(precoNominal);
+		$("#produto_preco_promocional").val(precoPromocional)
+	}	
 }
+
+ $(document).ready(function(){
+ $("#produto_preco_nominal").priceFormat({
+    prefix: 'R$ ',
+    centsSeparator: ','
+});
+
+
+$("#produto_preco_promocional").priceFormat({
+    prefix: 'R$ ',
+    centsSeparator: ','
+});
+
+
+	if( $("#produto_preco_nominal").val().length === 0 ){
+		$("#produto_preco_nominal").val("R$ 0,00");
+	} 
+	else {
+			$("#produto_preco_nominal").val($("#produto_preco_nominal").val().replace(".", ","));
+
+	}
+	if( $("#produto_preco_promocional").val().length === 0){
+		$("#produto_preco_promocional").val("R$ 0,00");
+	} 
+		else {
+			$("#produto_preco_promocional").val($("#produto_preco_promocional").val().replace(".", ","));
+
+	}
+
+ });
  
 </script>
 
@@ -57,14 +107,14 @@ function checkPreco (){
 	
    <p>
 	
-    	<label>Preço Nominal<span class="asterisk" ></span>:</label> 
+    	<label>Preço Nominal<span class="asterisk" >*</span>:</label> 
  	<%= f.text_field :preco_nominal, :class => 'long_text preco', :size => 10, :onkeypress => "onEnterLogin()"  %> 
 	</p>
   
   	
    <p>
 	
-    	<label>Preço Promocional<span class="asterisk" ></span>:</label> 
+    	<label>Preço Promocional<span class="asterisk" >*</span>:</label> 
  	<%= f.text_field :preco_promocional, :class => 'long_text preco', :size => '10', :onkeypress => "onEnterLogin()" %> 
 	</p>
 	
